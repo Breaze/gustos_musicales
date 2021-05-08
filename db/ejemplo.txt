@@ -1,0 +1,55 @@
+Creacion de registros
+
+INSERT INTO artistas (nombre, nacionalidad) VALUES ("Mago de Oz", "España");
+INSERT INTO artistas (nombre, nacionalidad) VALUES ("Kraken", "Colombia");
+INSERT INTO artistas (nombre, nacionalidad) VALUES ("Bring me the horizon", "Reino Unido");
+
+INSERT INTO albumes (nombre, fecha, artista_id) VALUES ("Hechizos, pócimas y brujería ", "2012-12-27", 1);
+INSERT INTO albumes (nombre, fecha, artista_id) VALUES ("Gaia", "2003-09-08", 1);
+INSERT INTO albumes (nombre, fecha, artista_id) VALUES ("Kraken en vivo: Huella y camino", "2002-10-01", 2);
+INSERT INTO albumes (nombre, fecha, artista_id) VALUES ("Sobre esta tierra", "2016-09-10", 2);
+INSERT INTO albumes (nombre, fecha, artista_id) VALUES ("Sempiternal", "2013-04-01", 3);
+INSERT INTO albumes (nombre, fecha, artista_id) VALUES ("Amo", "2019-01-11", 3);
+
+INSERT INTO canciones (nombre, albumes_id) VALUES ("El libro de las sombras", 1);
+INSERT INTO canciones (nombre, albumes_id) VALUES ("Xanandra", 1);
+INSERT INTO canciones (nombre, albumes_id) VALUES ("Alma", 2);
+INSERT INTO canciones (nombre, albumes_id) VALUES ("Atrapasueños", 2);
+INSERT INTO canciones (nombre, albumes_id) VALUES ("No me hables de amor", 3);
+INSERT INTO canciones (nombre, albumes_id) VALUES ("Vestido de cristal", 3);
+INSERT INTO canciones (nombre, albumes_id) VALUES ("Hazte a un lado", 4);
+INSERT INTO canciones (nombre, albumes_id) VALUES ("Resiste", 4);
+INSERT INTO canciones (nombre, albumes_id) VALUES ("Can you feel my heart", 5);
+INSERT INTO canciones (nombre, albumes_id) VALUES ("Shadow Moses", 5);
+INSERT INTO canciones (nombre, albumes_id) VALUES ("I apologise if you feel something", 6);
+INSERT INTO canciones (nombre, albumes_id) VALUES ("Ouch", 6);
+
+INSERT INTO usuarios (nombre, apellido, correo, clave) VALUES ("Simón", "Gaviria", "simon.gaviriao@gmail.com", "123456789");
+INSERT INTO usuarios (nombre, apellido, correo, clave) VALUES ("Pepito", "Perez", "pepito.perez@gmail.com", "123456789");
+
+
+INSERT INTO gustos  VALUES (1, 9);
+INSERT INTO gustos  VALUES (1, 10);
+INSERT INTO gustos  VALUES (1, 2);
+INSERT INTO gustos  VALUES (2, 12);
+INSERT INTO gustos  VALUES (2, 3);
+INSERT INTO gustos VALUES (2, 6);
+
+
+CONSULTAR GUSTOS DE TODOS LOS USUARIOS 
+
+SELECT u.nombre, u.apellido, c.nombre as cancion, a.nombre as album FROM gustos g INNER JOIN canciones c ON g.canciones_id = c.id INNER JOIN usuarios u ON g.usuarios_id = u.id INNER JOIN albumes a ON c.albumes_id = a.id
+
+CONSULTAR GUSTOS USUARIO ESPECIFICO
+
+SELECT u.nombre, u.apellido, c.nombre as cancion, a.nombre as album FROM gustos g INNER JOIN canciones c ON g.canciones_id = c.id INNER JOIN usuarios u ON g.usuarios_id = u.id INNER JOIN albumes a ON c.albumes_id = a.id WHERE u.id = 1
+
+actualizar registros
+
+UPDATE usuarios SET nombre = "Juanito", apellido = "Ortiz", clave = "abc" WHERE id=1;
+
+DELETE FROM gustos WHERE usuarios_id = 2 and canciones_id = 12;
+
+obtener canciones con album y artista
+
+SELECT c.nombre as cancion, al.nombre as album, ar.nombre as artista FROM canciones c INNER JOIN albumes al ON c.albumes_id = al.id INNER JOIN artistas ar ON al.artista_id = ar.id
