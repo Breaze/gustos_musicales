@@ -2,7 +2,7 @@
 const express = require('express');
 // Load Controller
 const UsuarioController = require('../app/controllers/UsuarioController');
-const usuario = new UsuarioController();;
+const usuario = new UsuarioController();
 // Call the router
 const api = express.Router();
 //var md_auth = require('../middlewares/authenticated');

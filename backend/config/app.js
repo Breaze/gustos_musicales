@@ -27,6 +27,5 @@ app.use((req, res, next) => {//Asignamos a la variable app la función flecha qu
  app.use('/api', usuario_routes);
  app.use('/api', gustos_routes);
 
-
 //Export the app to be used on the main file
 module.exports = app;
