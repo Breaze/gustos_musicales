@@ -6,6 +6,7 @@ const app = express();
 const cors = require('cors');
 //Import routes for each controller
 const usuario_routes = require('../routes/UsuarioRoutes'); 
+const gustos_routes = require('../routes/GustoRoutes'); 
 
 
 
@@ -24,6 +25,7 @@ app.use((req, res, next) => {//Asignamos a la variable app la función flecha qu
 });
 // Use routes
  app.use('/api', usuario_routes);
+ app.use('/api', gustos_routes);
 
 
 //Export the app to be used on the main file

@@ -7,7 +7,9 @@ const usuario = new UsuarioController();;
 const api = express.Router();
 //var md_auth = require('../middlewares/authenticated');
 // Creamos una ruta para los métodos que tenemos en nuestros controladores
-api.get('/usuario/saludar', usuario.saludar);
-api.post('/usuario/iniciar_sesion', usuario.iniciarSesion);
+api.post('/usuario', usuario.crearUsuario);
+api.post('/usuario/login', usuario.iniciarSesion);
+api.put('/usuario/actualizar_correo', usuario.actualizarCorreo);
+api.delete('/usuario', usuario.eliminarUsuario);
 // Export the configuration
 module.exports = api;
