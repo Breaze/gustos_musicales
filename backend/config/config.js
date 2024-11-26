@@ -6,7 +6,7 @@ const SERVER_URL = 'localhost';
 const DB_PORT =  '3306';
 const DB_URL = 'localhost';
 const DB_USER =  'root';
-const DB_PASS = 'xzNup8991';
+const DB_PASS = '';
 const DB_NAME = 'proyecto';
 //Crear la conexion
 let db = mysql.createPool({
